@@ -78,7 +78,7 @@ class IuranKolektor extends CI_Controller{
                 $row[] = $no;
                 $row[] = tgl_indo($v->format("Y-m"));
                 $row[] = $pelanggan->iuran;
-                $row[] = $pelanggan->Atanggal_bayar;
+                $row[] = $pelanggan->kolektor;
 
                 $data[] = $row;
             }
@@ -115,7 +115,7 @@ class IuranKolektor extends CI_Controller{
                 $row[] = $no;
                 $row[] = tgl_indo($pelanggan->bayar_bulan);
                 $row[] = $pelanggan->iuran;
-                $row[] = $pelanggan->bayar_bulan;
+                $row[] = $pelanggan->kolektor;
                 $row[] = $pelanggan->tanggal_bayar;
 
                 $data[] = $row;

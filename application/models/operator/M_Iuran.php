@@ -101,19 +101,21 @@ class M_Iuran extends CI_Model{
                 $query = $this->db->get();
 
                 if ($query->num_rows() < 1){
-                    $this->db->select('tran_pelanggan.no_registrasi, tanggal_daftar as Atanggal_bayar, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran');
+                    $this->db->select('tran_pelanggan.no_registrasi, tanggal_daftar as Atanggal_bayar, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran, kolektor');
                     $this->db->from('tran_pelanggan');
                     $this->db->join('tmst_pelanggan', 'tmst_pelanggan.no_registrasi=tran_pelanggan.no_registrasi');
                     $this->db->join('tmst_pembayaran', 'tmst_pembayaran.jenis_pelanggan=tmst_pelanggan.jenis_pelanggan');
+                    $this->db->join('tmst_kolektor', 'tmst_kolektor.id_kolektor=tmst_pelanggan.id_kolektor');
                     $this->db->where('jenis_pemasangan', 'non-paralel');
                     $this->db->where('tran_pelanggan.no_registrasi', $id);
 
                 }else {
 
-                    $this->db->select('id, tran_pembayaran.no_registrasi, bayar_bulan as Atanggal_bayar, tran_pembayaran.keterangan, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran');
+                    $this->db->select('id, tran_pembayaran.no_registrasi, bayar_bulan as Atanggal_bayar, tran_pembayaran.keterangan, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran, kolektor');
                     $this->db->from('tran_pembayaran');
                     $this->db->join('tmst_pelanggan', 'tmst_pelanggan.no_registrasi=tran_pembayaran.no_registrasi');
                     $this->db->join('tmst_pembayaran', 'tmst_pembayaran.jenis_pelanggan=tmst_pelanggan.jenis_pelanggan');
+                    $this->db->join('tmst_kolektor', 'tmst_kolektor.id_kolektor=tmst_pelanggan.id_kolektor');
                     $this->db->where('tran_pembayaran.no_registrasi', $id);
 
                 }
@@ -192,9 +194,10 @@ class M_Iuran extends CI_Model{
 
     private function _get_pembayaran_query()
     {
-        $this->db->select('id, tran_pembayaran.no_registrasi, tanggal_bayar, bayar_bulan, tran_pembayaran.keterangan, tmst_pelanggan.jenis_pelanggan, tran_pembayaran.iuran');
+        $this->db->select('id, tran_pembayaran.no_registrasi, tanggal_bayar, bayar_bulan, tran_pembayaran.keterangan, tmst_pelanggan.jenis_pelanggan, tran_pembayaran.iuran, kolektor');
         $this->db->from('tran_pembayaran');
         $this->db->join('tmst_pelanggan', 'tmst_pelanggan.no_registrasi=tran_pembayaran.no_registrasi');
+        $this->db->join('tmst_kolektor', 'tmst_kolektor.id_kolektor=tmst_pelanggan.id_kolektor');
 
 
         $i = 0;

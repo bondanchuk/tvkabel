@@ -53,10 +53,17 @@
                                 <div class="form-group m-form__group row">
                                     <label class="col-md-1 col-form-label">Tunggakan</label>
                                     <div class="col-md-2">
-                                        <input type="number" class="form-control" name="tunggakan" id="tunggakan" required>
+                                        <select name="param_tunggakan" id="param_tunggakan" class="form-control">
+                                            <option value="=">Sama Dengan</option>
+                                            <option value=">">Lebih Dari</option>
+                                            <option value="<">Kurang Dari</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input name="tunggakan" id="tunggakan" type="number" class="form-control">
                                     </div>
                                     <label class="col-form-label">Tgl Terakhir Bayar</label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <input type="date" class="form-control" name="tglbayar" id="tglbayar" required>
                                     </div>
                                     <label class="col-form-label">Status Pelanggan</label>
@@ -99,13 +106,17 @@
 
                             </div>
                             <div class="m-portlet__body">
-                                <a href="" class="btn btn-primary m-btn m-btn--icon m-btn--wide m-btn--air m-btn--custom" onclick="Cetak();"><i class="la la-print"> Cetak Tunggakan</i></a>
-                                <input class="btn btn-primary m-btn m-btn--icon m-btn--wide m-btn--air m-btn--custom" type="submit" onclick="Cetak();">
+                                <!--
+                                <button type="submit" class="btn btn-primary m-btn m-btn--icon m-btn--wide m-btn--air m-btn--custom" onclick="Cetak();">
+                                    <i class="la la-print"></i> Cetak
+                                </button>
+                                -->
                                 <br>
                                 <br>
 
                                 <link href="<?php echo base_url(); ?>assets/Datatables/datatables.min.css" rel="stylesheet">
                                 <link href="<?php echo base_url(); ?>assets/Datatables/Responsive-2.2.0/css/responsive.bootstrap.css" rel="stylesheet">
+                                <link href="<?php echo base_url(); ?>assets/DataTables/Buttons/css/buttons.dataTables.css" rel="stylesheet">
 
                                 <div class="form-group m-form__group row">
                                     <table id="table2" class="table table-striped" cellspacing="0" width="100%">
@@ -225,6 +236,20 @@
 <script src="<?php echo base_url()?>assets/Datatables/datatables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/Datatables/Responsive/js/dataTables.responsive.js"></script>
 <script src="<?php echo base_url(); ?>assets/Datatables/DataTables/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+
+
+
+
+
+
 
 <script type="text/javascript">
 
@@ -232,6 +257,7 @@
         var nama = $('#nama').val();
         var noreg = $('#noreg').val();
         var alamat = $('#alamat').val();
+        var param_tunggakan =$('#param_tunggakan').val();
         var tunggakan = $('#tunggakan').val();
         var tglbayar = $('#tglbayar').val();
         var status = $('#status').val();
@@ -244,11 +270,23 @@
             "processing": true, //Feature control the processing indicator.
             "serverSide": true,
             "ordering": false,
+            dom: 'Bfrtip',
+            select: {
+                style: 'multi'
+            },
+            buttons: [
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        rows: { selected: true }
+                    }
+                },
+            ],
             "ajax": {
                 "url": "<?php echo site_url('operator/Tunggakan/ajax_list') ?>/",
                 "type": "POST",
                 dataType: 'json',
-                data: {nama: nama, noreg: noreg, almt:alamat, tgkn:tunggakan, tglbyr:tglbayar, stts:status},
+                data: {nama: nama, noreg: noreg, almt:alamat, tgkn:tunggakan, tglbyr:tglbayar, stts:status, parm:param_tunggakan},
 
             },
             //Set column definition initialisation properties.
@@ -281,7 +319,7 @@
 
     function Cetak() {
 
-        window.location.href = "<?php echo base_url('index.php/operator/CetakKwitansi/Cetak')?>/"+vals;
+        window.location.href = "<?php echo base_url('index.php/operator/Tunggakan/Cetak')?>/"+vals;
     }
 
     $(document).ready(function() {
