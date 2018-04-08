@@ -73,24 +73,39 @@ class CetakKwitansi extends CI_Controller{
         foreach ($mahasiswa as $row){
 
             $pdf->AddPage();
-            $pdf->SetAutoPageBreak();
+            $pdf->SetAutoPageBreak(false, 0);
 
             $pdf->SetFont('Courier','',10);
             //nopel
-            $pdf->Cell(177,6, '',0,0);
+            $pdf->Cell(177,0, '',0,0);
             $pdf->Cell(30,10,$row->no_registrasi,0,0);
             //nama
-            $pdf->Cell(-168,6, '',0,0);
+            $pdf->Cell(-168,0, '',0,0);
             $pdf->Cell(30,30,$row->nama_lengkap,0,0);
             //alamat
-            $pdf->Cell(-30,6, '',0,0);
+            $pdf->Cell(-30,0, '',0,0);
             $pdf->Cell(30,39,$row->alamat,0,0);
             //jumlah tv
-            $pdf->Cell(107,6, '',0,0);
+            $pdf->Cell(107,0, '',0,0);
             $pdf->Cell(30,38,$row->keterangan,0,0);
             //iuran
-            $pdf->Cell(0,6, '',0,0);
-            $pdf->Cell(30,59,$row->iuran,0,0);
+            $pdf->Cell(-178,0, '',0,0);
+            $pdf->Cell(30,78,$row->iuran,0,0);
+            //paralel
+            $pdf->Cell(20, 0,'',0);
+            $pdf->Cell(30,78,0,0,0);
+            //lain lain
+            $pdf->Cell(5, 0,'',0);
+            $pdf->Cell(30,78,'lain',0,0);
+            //jumlah
+            $pdf->Cell(5, 0,'',0);
+            $pdf->Cell(30,78,'jumlah',0,0);
+            //kolektor
+            $pdf->Cell(-5, 0,'',0);
+            $pdf->Cell(30,78,'kolektor',0,0);
+            //total
+            $pdf->Cell(-67, 0,'',0);
+            $pdf->Cell(30,95,'total',0,0);
 
 
 

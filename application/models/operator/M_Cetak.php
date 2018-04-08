@@ -13,7 +13,7 @@ class M_Cetak extends CI_Model{
     private function _get_datatables_query()
     {
 //(SELECT tmst_pelanggan.no_registrasi, nama_lengkap, no_hp, alamat, alamat2, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.keterangan, tmst_pembayaran.iuran FROM tmst_pelanggan JOIN tmst_pembayaran ON tmst_pembayaran.jenis_pelanggan=tmst_pelanggan.jenis_pelanggan WHERE no_registrasi='ID000001') as Pelanggan, (SELECT tran_pembayaran.tanggal_bayar FROM tran_pembayaran WHERE no_registrasi='ID000001' ORDER BY tanggal_bayar DESC) AS Bayar
-        $this->db->select('tran_pembayaran.no_registrasi, no_ktp, nama_lengkap, alamat, alamat2, no_rumah, keterangan_rumah, keterangan_bangunan, blok, gang, rt, rw, kelurahan, kecamatan, keterangan_alamat, telp_rumah, no_hp, type_bangunan, status, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran, substring_index(max(tran_pembayaran.tanggal_bayar),"|",1) tg_terakhir, tmst_pembayaran.keterangan');
+        $this->db->select('tran_pembayaran.no_registrasi, no_ktp, nama_lengkap, alamat, alamat2, no_rumah, keterangan_rumah, keterangan_bangunan, blok, gang, rt, rw, kelurahan, kecamatan, keterangan_alamat, telp_rumah, no_hp, type_bangunan, status, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran, substring_index(max(tran_pembayaran.bayar_bulan),"|",1) tg_terakhir, tmst_pembayaran.keterangan');
         $this->db->from($this->table);
         $this->db->join('tmst_pelanggan', 'tmst_pelanggan.no_registrasi=tran_pembayaran.no_registrasi');
         $this->db->join('tmst_pembayaran', 'tmst_pembayaran.jenis_pelanggan=tmst_pelanggan.jenis_pelanggan');
@@ -97,6 +97,6 @@ class M_Cetak extends CI_Model{
         $query = $this->db->get();
         $res = $query->result();
         return $res;
-        
+
     }
 }
