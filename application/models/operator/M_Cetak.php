@@ -97,5 +97,6 @@ class M_Cetak extends CI_Model{
         $query = $this->db->get();
         $res = $query->result();
         return $res;
+        
     }
 }

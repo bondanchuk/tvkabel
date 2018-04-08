@@ -73,7 +73,7 @@ class CetakKwitansi extends CI_Controller{
         foreach ($mahasiswa as $row){
 
             $pdf->AddPage();
-            $pdf->SetAutoPageBreak(off);
+            $pdf->SetAutoPageBreak();
 
             $pdf->SetFont('Courier','',10);
             //nopel
