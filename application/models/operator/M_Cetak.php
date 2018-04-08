@@ -89,9 +89,11 @@ class M_Cetak extends CI_Model{
     public function getCetak($id)
     {
 
-        $this->db->select('*');
+        $this->db->select('tmst_pelanggan.no_registrasi, tmst_pelanggan.nama_lengkap, alamat, no_rumah, blok, gang, no_hp, 
+        tmst_pelanggan.id_kolektor, tmst_pelanggan.status, tmst_pelanggan.jenis_pelanggan, tmst_pembayaran.iuran, tmst_pembayaran.keterangan');
         $this->db->from('tmst_pelanggan');
-        $this->db->where_in('no_registrasi', explode(",",$id));
+        $this->db->join('tmst_pembayaran', 'tmst_pembayaran.jenis_pelanggan=tmst_pelanggan.jenis_pelanggan');
+        $this->db->where_in('tmst_pelanggan.no_registrasi', explode(",",$id));
         $query = $this->db->get();
         $res = $query->result();
         return $res;

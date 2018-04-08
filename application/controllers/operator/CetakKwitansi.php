@@ -66,37 +66,34 @@ class CetakKwitansi extends CI_Controller{
 
     function Cetak($id)
     {
-        $pdf = new FPDF('l','mm',array(253 ,80));
-
-        /*
-        $this->db->select('*');
-        $this->db->from('tmst_pelanggans');
-        $this->db->set('where no_registrasis in("'.$id.'")', FALSE);
-        */
+        $pdf = new FPDF('l','mm',array(217 ,69.9));
 
         $mahasiswa = $this->M_Cetak->getCetak($id);
 
         foreach ($mahasiswa as $row){
 
-            // membuat halaman baru
             $pdf->AddPage();
-            // setting jenis font yang akan digunakan
-            $pdf->SetFont('Arial','B',16);
-            // mencetak string
-            $pdf->Cell(190,7,'KWITANSI',0,1,'C');
-            $pdf->SetFont('Arial','B',12);
-            // Memberikan space kebawah agar tidak terlalu rapat
-            $pdf->Cell(10,7,'',0,1);
-            $pdf->SetFont('Arial','B',10);
-            $pdf->Cell(20,6,'No Reg',1,0);
-            $pdf->Cell(85,6,'NAMA Lengkap',1,0);
-            $pdf->Cell(27,6,'Alamat',1,0);
-            $pdf->Cell(25,6,'Alamat Mutasi',1,1);
-            $pdf->SetFont('Arial','',10);
-            $pdf->Cell(20,6,$row->no_registrasi,1,0);
-            $pdf->Cell(85,6,$row->nama_lengkap,1,0);
-            $pdf->Cell(27,6,$row->alamat,1,0);
-            $pdf->Cell(25,6,$row->alamat2,1,1);
+            $pdf->SetAutoPageBreak(off);
+
+            $pdf->SetFont('Courier','',10);
+            //nopel
+            $pdf->Cell(177,6, '',0,0);
+            $pdf->Cell(30,10,$row->no_registrasi,0,0);
+            //nama
+            $pdf->Cell(-168,6, '',0,0);
+            $pdf->Cell(30,30,$row->nama_lengkap,0,0);
+            //alamat
+            $pdf->Cell(-30,6, '',0,0);
+            $pdf->Cell(30,39,$row->alamat,0,0);
+            //jumlah tv
+            $pdf->Cell(107,6, '',0,0);
+            $pdf->Cell(30,38,$row->keterangan,0,0);
+            //iuran
+            $pdf->Cell(0,6, '',0,0);
+            $pdf->Cell(30,59,$row->iuran,0,0);
+
+
+
         }
 
         $filename= date("Y-m-d h:i:sa").'.pdf';
