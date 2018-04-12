@@ -340,11 +340,11 @@
                                         <ul class="m-menu__subnav">
 
                                             <li class="m-menu__item "  aria-haspopup="true">
-                                                <a  href="<?php echo site_url('operator/Downpayment')?>" class="m-menu__link ">
+                                                <a  href="<?php echo site_url('operator/Status')?>" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-technology"></i>
                                                     <span class="m-menu__link-title">
                                                         <span class="m-menu__link-wrap">
-                                                            <span class="m-menu__link-text">Cari Pelanggan</span>
+                                                            <span class="m-menu__link-text">Status Pelanggan</span>
                                                         </span>
                                                     </span>
                                                 </a>

@@ -283,8 +283,12 @@
             });
 
     }
+
+
+
+
     var vals=[];
-    function CekKwitansi(id) {
+    function CekKwitansi() {
         var noreg = document.getElementsByName('noreg[]');
         vals = [];
 
@@ -313,10 +317,22 @@
                 $(".checkbox").each(function () {
                     $(this).prop("checked", true);
                 });
+
+                for (var i=0, n=noreg.length;i<n;i++)
+                {
+                    if (noreg[i].checked)
+                    {
+                        vals += ","+noreg[i].value;
+                    }
+                }
+                if (vals) vals = vals.substring(1);
+                alert(vals)
+
             } else {
                 $(".checkbox").each(function () {
                     $(this).prop("checked", false);
                 });
+                vals = [];
             }
         });
     });

@@ -62,6 +62,26 @@
             ],
             destroy: true,
         });
+
+        $('#table_status').DataTable({
+            responsive: true,
+            "iDisplayLength": 100,
+            "bLengthChange": false,
+            "processing": true, //Feature control the processing indicator.
+            "serverSide": true,
+            "ajax": {
+                "url": "<?php echo site_url('operator/Status/ajax_list') ?>",
+                "type": "POST"
+            },
+            //Set column definition initialisation properties.
+            "columnDefs": [
+                {
+                    "targets": [-1], //last column
+                    "orderable": false, //set not orderable
+                },
+            ],
+            destroy: true,
+        });
     });
 
     function setID(id, nama, alamat)
@@ -71,6 +91,8 @@
         document.getElementById("set_alamat").value = alamat;
         $('#modalPelanggan').modal('hide');
     }
+
+
 
 
     $(document).ready(function () {

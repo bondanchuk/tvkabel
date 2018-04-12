@@ -38,7 +38,7 @@ class CetakKwitansi extends CI_Controller{
         foreach ($list as $pelanggan) {
             $no++;
             $row = array();
-            $row[] = '<input type="checkbox" name="noreg[]" id="noreg" class="form-control checkbox" value="'.$pelanggan->no_registrasi.'" onchange="CekKwitansi('."'".$pelanggan->no_registrasi."'".')">';
+            $row[] = '<input type="checkbox" id="noreg" name="noreg[]"  class="form-control checkbox" value="'.$pelanggan->no_registrasi.'" onchange="CekKwitansi('."'".$pelanggan->no_registrasi."'".')">';
 
             $row[] = $no;
             $row[] = $pelanggan->no_registrasi;
