@@ -9,7 +9,7 @@
             <div class="m-subheader ">
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
-                        <h3 class="m-subheader__title ">Data Mutasi</h3>
+                        <h3 class="m-subheader__title ">Data Status Pelanggan</h3>
                     </div>
                 </div>
             </div>
@@ -60,21 +60,6 @@
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="noreg" id="noreg" autocomplete="off">
                                     </div>
-                                    <label class="col-md-1 col-form-label">Alamat</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" name="alamat" id="alamat" autocomplete="off">
-                                    </div>
-                                    <label class="col-md-1 col-form-label">No. Rumah</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" name="norumah" id="norumah" autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group row">
-
-                                    <label class="col-md-1 col-form-label">No.Hp</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" name="nohp" id="nohp" autocomplete="off">
-                                    </div>
                                     <div class="col-md-2">
                                         <input type="submit" class="btn btn-info m-btn m-btn--icon m-btn--wide m-btn--air m-btn--custom" value="Cari" onclick="getID();">
                                     </div>
@@ -82,7 +67,7 @@
 
                                 <br>
 
-                                <table id="tableMutasi" class="table table-striped" cellspacing="0" width="100%">
+                                <table id="tableStatus" class="table table-striped" cellspacing="0" width="100%">
                                     <thead style="font-size: 12px; color: black;">
                                     <tr>
 
@@ -90,9 +75,9 @@
                                         <th style="text-align: center;">No Registrasi</th>
                                         <th style="text-align: center;">Nama Lengkap</th>
                                         <th style="text-align: center;">Alamat</th>
-                                        <th style="text-align: center;">Alamat Mutasi</th>
-                                        <th style="text-align: center;">Tgl Mutasi</th>
-                                        <th style="text-align: center;">No. Hp</th>
+                                        <th style="text-align: center;">Tgl Status</th>
+                                        <th style="text-align: center;">Status</th>
+                                        <th style="text-align: center;">Uraian</th>
                                         <th style="text-align: center;">Aksi</th>
 
                                     </tr>
@@ -246,7 +231,7 @@
                 "processing": true, //Feature control the processing indicator.
                 "serverSide": true,
                 "ajax": {
-                    "url": "<?php echo site_url('operator/LihatMutasi/ajax_list') ?>/",
+                    "url": "<?php echo site_url('operator/LihatStatus/ajax_list') ?>/",
                     "type": "POST",
                     dataType: 'json',
                     data: {tgl1: tanggal1, tgl2: tanggal2},
@@ -268,17 +253,14 @@
 
         var nama = $('#nama').val();
         var noreg = $('#noreg').val();
-        var alamat = $('#alamat').val();
-        var norumah = $('#norumah').val();
-        var nohp = $('#nohp').val();
-        $('#tableMutasi').DataTable({
+        $('#tableStatus').DataTable({
             responsive: true,
             "iDisplayLength": 100,
             "bLengthChange": false,
             "processing": true, //Feature control the processing indicator.
             "serverSide": true,
             "ajax": {
-                "url": "<?php echo site_url('operator/LihatMutasi/ajax_id') ?>/",
+                "url": "<?php echo site_url('operator/LihatStatus/ajax_id') ?>/",
                 "type": "POST",
                 dataType: 'json',
                 data: {nama:nama, noreg:noreg, alamat:alamat, norumah:norumah, nohp:nohp},
