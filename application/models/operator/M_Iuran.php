@@ -94,7 +94,7 @@ class M_Iuran extends CI_Model{
         $res = $querySLQ->result();
 
         foreach ($res as $result){
-            if($result->status == "aktif"){
+            if($result->status == "aktif" || $result->status == "Aktif"){
                 $this->db->select('*');
                 $this->db->from('tran_pembayaran');
                 $this->db->where('tran_pembayaran.no_registrasi', $id);
