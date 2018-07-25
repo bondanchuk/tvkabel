@@ -9,7 +9,7 @@ class M_Paralel extends CI_Model{
 
 
     var $table = 'tmst_pelanggan';
-    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_rumah', 'blok', 'no_hp');
+    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_hp');
     var $order = array('no_registrasi' => 'asc');
 
     private function _get_datatables_query()

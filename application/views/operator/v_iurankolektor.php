@@ -95,7 +95,7 @@
                                 <div class="form-group m-form__group row">
                                     <label class="col-md-2 col-form-label">Status</label>
                                     <div class="col-md-3">
-                                        <input class="form-control" id="status" name="status">
+                                        <input class="form-control" id="status" name="status" readonly>
                                     </div>
 
                                     <label class="col-md-2 col-form-label">Jenis Pemasangan</label>
@@ -253,8 +253,6 @@
                                             <th style="text-align: center;">No</th>
                                             <th style="text-align: center;">Nama Lengkap</th>
                                             <th style="text-align: center;">Alamat</th>
-                                            <th style="text-align: center;">Nomor Rumah</th>
-                                            <th style="text-align: center;">Blok</th>
                                             <th style="text-align: center;">No. Hp</th>
                                             <th style="text-align: center;">No. Registrasi</th>
 

@@ -196,14 +196,7 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <div class="col-lg-1 ">
-                                            <button type="submit" name="reset" class="btn btn-secondary  m-btn m-btn--icon m-btn--wide m-btn--air m-btn--custom">
-                                                <span>
-                                                    <i class="la la-recycle"></i>
-                                                    <span>Reset Data</span>
-                                                </span>
-                                            </button>
-                                        </div>
+
                                     </div>
 
 

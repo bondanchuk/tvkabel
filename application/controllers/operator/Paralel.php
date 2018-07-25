@@ -36,8 +36,6 @@ class Paralel extends CI_Controller{
             $row[] = $no;
             $row[] = $pelanggan->nama_lengkap;
             $row[] = $pelanggan->alamat;
-            $row[] = $pelanggan->no_rumah;
-            $row[] = $pelanggan->blok;
             $row[] = $pelanggan->no_hp;
 
             $row[] = '<a class="btn btn-sm btn-success" href="javascript:void(0)"  onclick="setID('."'".$pelanggan->no_registrasi."',"."'".$pelanggan->nama_lengkap."',"."'".$pelanggan->alamat."',".')">'.$pelanggan->no_registrasi.'</a>';

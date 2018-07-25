@@ -68,49 +68,7 @@
                         <!--end::Portlet-->
                     </div>
                 </div>
-                <div class="modal fade bs-example-modal-md" tabindex="-1" id="modalPelanggan" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Cari Data Pelanggan</h4>
-                            </div>
 
-                            <div class="modal-body">
-
-                                <div class="form-body" >
-                                    <link href="<?php echo base_url(); ?>assets/Datatables/datatables.min.css" rel="stylesheet">
-                                    <link href="<?php echo base_url(); ?>assets/Datatables/Responsive/css/responsive.bootstrap.css" rel="stylesheet">
-                                    <br>
-                                    <table id="table" class="table table-striped" cellspacing="0" width="100%">
-                                        <thead style="font-size: 12px; color: black;">
-                                        <tr>
-
-                                            <th style="text-align: center;">No</th>
-                                            <th style="text-align: center;">Nama Lengkap</th>
-                                            <th style="text-align: center;">Alamat</th>
-                                            <th style="text-align: center;">Nomor Rumah</th>
-                                            <th style="text-align: center;">Blok</th>
-                                            <th style="text-align: center;">No. Hp</th>
-                                            <th style="text-align: center;">No. Registrasi</th>
-
-                                        </tr>
-                                        </thead>
-                                        <tbody style="font-size:12px; color: black; text-align: center;">
-                                        </tbody>
-                                    </table>
-
-
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            </div>
-                            <?php echo form_close(); ?>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div>
             </div>
         </div>
     </div>

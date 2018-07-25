@@ -9,12 +9,12 @@
 class M_Iuran extends CI_Model{
 
     var $table = 'tmst_pelanggan';
-    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_rumah', 'blok', 'no_hp');
+    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_hp');
     var $order = array('no_registrasi' => 'asc');
 
     private function _get_datatables_query()
     {
-        $this->db->select('tmst_pelanggan.no_registrasi, no_ktp, nama_lengkap, alamat, alamat2, no_rumah, keterangan_rumah, keterangan_bangunan, blok, gang, rt, rw, kelurahan, kecamatan, keterangan_alamat, telp_rumah, no_hp, type_bangunan, kolektor, status, tmst_pelanggan.jenis_pelanggan, iuran');
+        $this->db->select('tmst_pelanggan.no_registrasi, no_ktp, nama_lengkap, alamat, alamat2, no_hp, kolektor, status, tmst_pelanggan.jenis_pelanggan, iuran');
         $this->db->from($this->table);
         $this->db->join('tmst_pembayaran', 'tmst_pelanggan.jenis_pelanggan=tmst_pembayaran.jenis_pelanggan');
         $this->db->join('tmst_kolektor', 'tmst_pelanggan.id_kolektor=tmst_kolektor.id_kolektor');

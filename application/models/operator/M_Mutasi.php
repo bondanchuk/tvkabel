@@ -22,7 +22,7 @@ class M_Mutasi extends CI_Model{
 
     private function _get_datatables_query()
     {
-        $this->db->select('tmst_pelanggan.no_registrasi, tanggal_mutasi, no_ktp, nama_lengkap, alamat, alamat2, no_rumah, keterangan_rumah, keterangan_bangunan, blok, gang, rt, rw, kelurahan, kecamatan, keterangan_alamat, telp_rumah, no_hp, type_bangunan, status, tmst_pelanggan.jenis_pelanggan');
+        $this->db->select('tmst_pelanggan.no_registrasi, tanggal_mutasi, no_ktp, nama_lengkap, alamat, alamat2, no_hp, status, tmst_pelanggan.jenis_pelanggan');
         $this->db->from($this->table);
         $this->db->join('tran_mutasi', 'tmst_pelanggan.no_registrasi=tran_mutasi.no_registrasi');
 

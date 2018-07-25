@@ -10,12 +10,12 @@ class M_Status extends CI_Model{
 
 
     var $table = 'tmst_pelanggan';
-    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_rumah', 'blok', 'no_hp');
+    var $column = array('no_registrasi', 'nama_lengkap', 'alamat', 'no_hp');
     var $order = array('no_registrasi' => 'asc');
 
     private function _get_datatables_query()
     {
-        $this->db->select('tmst_pelanggan.nama_lengkap, tmst_pelanggan.alamat, tmst_pelanggan.blok, tmst_pelanggan.no_rumah, tmst_pelanggan.gang, min(tanggal_daftar) as tanggal_pasang, tmst_pelanggan.jenis_pelanggan, tmst_pelanggan.status');
+        $this->db->select('tmst_pelanggan.nama_lengkap, tmst_pelanggan.alamat, min(tanggal_daftar) as tanggal_pasang, tmst_pelanggan.jenis_pelanggan, tmst_pelanggan.status');
         $this->db->from($this->table);
         $this->db->join('tran_pelanggan', 'tran_pelanggan.no_registrasi=tmst_pelanggan.no_registrasi');
 
@@ -66,7 +66,7 @@ class M_Status extends CI_Model{
 
     private function _get_status_query()
     {
-        $this->db->select('tmst_pelanggan.no_registrasi, tanggal_mutasi, no_ktp, nama_lengkap, alamat, alamat2, no_rumah, keterangan_rumah, keterangan_bangunan, blok, gang, rt, rw, kelurahan, kecamatan, keterangan_alamat, telp_rumah, no_hp, type_bangunan, status, tmst_pelanggan.jenis_pelanggan');
+        $this->db->select('tmst_pelanggan.no_registrasi, tanggal_mutasi, no_ktp, nama_lengkap, alamat, alamat2, no_hp, status, tmst_pelanggan.jenis_pelanggan');
         $this->db->from($this->table);
         $this->db->join('tran_mutasi', 'tmst_pelanggan.no_registrasi=tran_mutasi.no_registrasi');
 

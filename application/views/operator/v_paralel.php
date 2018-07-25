@@ -144,8 +144,6 @@
                                             <th style="text-align: center;">No</th>
                                             <th style="text-align: center;">Nama Lengkap</th>
                                             <th style="text-align: center;">Alamat</th>
-                                            <th style="text-align: center;">Nomor Rumah</th>
-                                            <th style="text-align: center;">Blok</th>
                                             <th style="text-align: center;">No. Hp</th>
                                             <th style="text-align: center;">No. Registrasi</th>
 

@@ -167,7 +167,7 @@
 
 
                                 <li class="m-menu__item  m-menu__item--active"  aria-haspopup="true">
-                                    <a  href="?page=index&demo=demo5" class="m-menu__link ">
+                                    <a  href="Home" class="m-menu__link ">
                                         <span class="m-menu__item-here"></span>
                                         <span class="m-menu__link-text">Home</span>
                                     </a>
@@ -349,8 +349,21 @@
                                                     </span>
                                                 </a>
                                             </li>
+
+                                            <li class="m-menu__item "  aria-haspopup="true">
+                                                <a  href="<?php echo site_url('operator/Cari')?>" class="m-menu__link ">
+                                                    <i class="m-menu__link-icon flaticon-technology"></i>
+                                                    <span class="m-menu__link-title">
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">Cari Pelanggan</span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
+
+
                                 </li>
 
                                 <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  data-menu-submenu-toggle="click" aria-haspopup="true">
